@@ -7,4 +7,4 @@ My zodiac sign is Sagittarius♐
 
 ## Contact
 
-[liên hệ :](https://www.facebook.com/profile.php?id=100035656414266)
+[liên hệ](https://www.facebook.com/profile.php?id=100035656414266)
