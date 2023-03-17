@@ -5,40 +5,37 @@ I,m come form An Giang and i'm study in CTU .
 
 My zodiac sign is Sagittarius♐
 
-# Foobar
+const axios = require("axios");
+const fs = require("fs");
 
-Foobar is a Python library for dealing with word pluralization.
+const getQuote = async () => {
+  try {
+    const { data } = await axios.get("https://quotes.rest/qod?language=en");
+    const quote = data.contents.quotes[0].quote;
+    const author = data.contents.quotes[0].author;
 
-## Installation
+    console.log("new quote", `"${quote}"`);
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+    return {
+      quote,
+      author,
+    };
+  } catch (err) {
+    console.error(err.message);
+    return {};
+  }
+};
 
-```bash
-pip install foobar
-```
+const generate = async () => {
+  const { quote, author } = await getQuote();
 
-## Usage
+  if (!quote) return;
 
-```python
-import foobar
+  fs.writeFileSync("README.md", `_**${quote}**_\n\n${author}`);
+};
 
-# returns 'words'
-foobar.pluralize('word')
+generate();
 
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
+## Contact
 
 [MIT](https://www.facebook.com/profile.php?id=100035656414266)
